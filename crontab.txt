@@ -1,0 +1,26 @@
+#
+# Rajarshi Das
+# Created: 
+# Updated:
+#
+ 
+PATH=/home/rd/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin
+logFile=/home/rd/backup.log
+
+# Cronjobs
+# m h  dom mon dow   command
+
+# Daily
+15 11 * * * backupDriveNo.sh 1000 >> ${logFile}
+15 12 * * * backupDriveNo.sh 5000 >> ${logFile}
+15 13 * * * backupDriveNo.sh 6000 >> ${logFile}
+
+# Weekly
+45 11 * * 2 backupDriveNo.sh 2000 >> ${logFile}
+45 12 * * 3 backupDriveNo.sh 3000 >> ${logFile}
+45 13 * * 4 backupDriveNo.sh 4000 >> ${logFile}
+
+# All databases
+45 16 * * * backupPorcupine.sh >> ${logFile}
+
+
