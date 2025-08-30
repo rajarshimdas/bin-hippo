@@ -19,5 +19,9 @@ dateToday=$(date +"%F %R")
 rsync -az root@beluga:/beluga-data/${driveNo}/ /tank/beluga-backup/${driveNo}/
 
 # Log 
-echo "Drive No: ${driveNo} | Start at: ${dateToday} | End at: $(date +'%F %R')"
+if [ $? -eq 0 ]; then
+	echo "Drive No: ${driveNo} | Start at: ${dateToday} | End at: $(date +'%F %R')"
+else
+	echo "Drive No: ${driveNo} | Start at: ${dateToday} | Failed"
+fi
 # End
